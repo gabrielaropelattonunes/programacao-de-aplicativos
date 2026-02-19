@@ -1,0 +1,9 @@
+idade = 16 # variável inteira 
+peso = 70.1 # variável float 
+nome = "Gabriela Ropelatto Nunes" # variável string 
+sexo_feminino = True # variável bool 
+
+print(nome)
+print(idade)
+print(peso)
+print(sexo_feminino)
