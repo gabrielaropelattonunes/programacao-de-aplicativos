@@ -1,9 +1,11 @@
-open("viagens.txt",'w').close 
+def criar_arquivo():    
+    open("viagens.txt",'w').close() 
+
 
 def adicionar():
     destino = input("Digite o destino: ")
     with open("viagens.txt",'a') as arquivo:
-        arquivo.append(destino + '\n')
+        arquivo.write(destino + '\n')
         print("destino adicionado")
 
 def ler():
@@ -11,12 +13,12 @@ def ler():
         viagens = arquivo.readlines()
     soma = 0 
     for viagem in viagens:
-        print("f{i} - {viagem.strip()}")
+        print(f"{soma} - {viagem.strip()}")
     soma += 1 
 
 def atualizar():
     ler()
-    destino = input("digite o destino que deseja alterar: ")
+    destino = int(input("digite o id que deseja alterar: "))
     novo_destino = input("digite o novo destino: ")
     with open("viagens.txt",'r') as arquivo:
         linhas = arquivo.readlines()
@@ -27,19 +29,19 @@ def atualizar():
 
 def deletar():
     ler()
-    destino =input("digite o destino que deseja remover: ")
-    with open("arquivo.txt",'r') as arquivo:
+    destino = int(input("digite o id que deseja remover: "))
+    with open("viagens.txt",'r') as arquivo:
         linhas = arquivo.readlines()
     del linhas [destino]  
-    with open("arquivo.txt",'w') as arquivo:
+    with open("viagens.txt",'w') as arquivo:
         arquivo.writelines(linhas)
-    print("aluno removido")
+    print("destino removido")
 
 while True:
     print("\n1-adicionar | 2-Ler | 3-atualizar | 4-deletar | 5-Sair")
     opcao = input("Escolha: ")
 
-    if opcao == '1': adicionar ()
+    if opcao == '1': adicionar()
     elif opcao == '2': ler()
     elif opcao == '3': atualizar()
     elif opcao == '4': deletar()
