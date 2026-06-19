@@ -8,24 +8,27 @@ def cadastrar_aluno():
     turma_aluno= input("Digite a turma do aluno: ")
     idade_aluno = int(input("Digite a idade do aluno: "))
     cpf_aluno =input("Digite o CPF do aluno: ")
+    id_professor = int(input("Digite o ID do professor responsavél: "))
+
 
     cursor.execute ('''
                 CREATE TABLE IF NOT EXISTS alunos
                 (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    nome TEXT NOT NULL,
+                    nome TEXT,
                     telefone TEXT,
                     turma TEXT,
                     idade INTEGER,
                     cpf TEXT UNIQUE
+                    id_professor, INTEGER
+                    FOREIGN KEY (id_professor) REFERENCES professor (id)
                 )''')
-
-
+    
     comando_inserir = (f'''
                         insert into alunos
                         (nome, telefone, turma, idade, cpf)
                         values('{nome_aluno}', '{telefone_aluno}', '{turma_aluno}',
-                        {idade_aluno}, '{cpf_aluno}')
+                        {idade_aluno}, '{cpf_aluno}','{id_professor}')
                         ''')
     
     cursor.execute(comando_inserir)
@@ -59,6 +62,7 @@ def alterar_aluno():
         novo_telefone = input("Digite o novo telefone: ")
         nova_turma = input("Digite a nova turma: ")
         novo_cpf = input("Digite o novo cpf: ")
+
 
     comando= f''' UPDATE alunos SET nome= '{novo_nome}',
                 idade= {nova_idade}, telefone= '{novo_telefone}', idade='{nova_idade}',
