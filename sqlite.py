@@ -8,6 +8,9 @@ def cadastrar_aluno():
     turma_aluno= input("Digite a turma do aluno: ")
     idade_aluno = int(input("Digite a idade do aluno: "))
     cpf_aluno =input("Digite o CPF do aluno: ")
+    endereco_aluno = input("digite o endereço: ")
+    cidade_aluno = input("digite a cidade do professor: ")
+    estado_aluno = input("digite o estado: ")
     id_professor = int(input("Digite o ID do professor responsavél: "))
 
 
@@ -19,16 +22,19 @@ def cadastrar_aluno():
                     telefone TEXT,
                     turma TEXT,
                     idade INTEGER,
-                    cpf TEXT UNIQUE
+                    cpf TEXT UNIQUE,
+                    endereco TEXT,
+                    cidade TEXT,
+                    estado TEXT,
                     id_professor, INTEGER
                     FOREIGN KEY (id_professor) REFERENCES professor (id)
                 )''')
     
     comando_inserir = (f'''
                         insert into alunos
-                        (nome, telefone, turma, idade, cpf)
+                        (nome, telefone, turma, idade, cpf ,endereco, cidade, estado, id_professor)
                         values('{nome_aluno}', '{telefone_aluno}', '{turma_aluno}',
-                        {idade_aluno}, '{cpf_aluno}','{id_professor}')
+                        {idade_aluno}, '{cpf_aluno}','{endereco_aluno},'{cidade_aluno},'{estado_aluno}','{id_professor}')
                         ''')
     
     cursor.execute(comando_inserir)

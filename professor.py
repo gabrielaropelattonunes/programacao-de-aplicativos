@@ -5,11 +5,14 @@ def criar_tabela():
     conexao = sqlite3.connect('escola_demonstracao.db')
     cursor = conexao.cursor()
 
-    nome_professor= input("Digite o nome completo do professor: ")
-    tel_professor = input("Digite o telefone: ")
-    materia_professor = input("Digite a materia: ")
+    nome = input("Digite o nome completo do professor: ")
+    tel = input("Digite o telefone: ")
+    materia = input("Digite a materia: ")
     idade = int(input("Digite a idade: "))
     salario = input("Digite o salário: ")
+    endereco= input("digite o endereço: ")
+    cidade = input("digite a cidade do professor: ")
+    estado= input("digite o estado: ")
     nome_escola = input("Digite o nome da escola que trabalha: ")
 
     cursor.execute ('''
@@ -20,13 +23,16 @@ def criar_tabela():
                     materia TEXT,
                     idade INTEGER,
                     salario TEXT,
+                    endereco TEXT,
+                    cidade TEXT,
+                    estado TEXT,
                     nome_escola  TEXT )''')
 
     comando_inserir = (f'''
                         INSERT INTO professor
-                        (nome, telefone, materia, idade, salario, nome_escola)
-                        VALUES('{nome_professor}', '{tel_professor}', '{materia_professor}',
-                        {idade}, '{salario}' , '{nome_escola}')''')
+                        (nome, telefone, materia, idade, salario, endereco, cidade, estado, nome_escola)
+                        VALUES('{nome}', '{tel}', '{materia}',
+                        {idade}, '{salario}' ,'{endereco}', '{cidade}', '{estado}','{nome_escola}')''')
     cursor.execute(comando_inserir)
     conexao.commit()
     cursor.execute("SELECT * FROM professor")
