@@ -5,8 +5,11 @@ def cadastrar_lista_alunos():
      
     conexao = sqlite3.connect('sistema_escola.db') 
     cursor = conexao.cursor() 
-    cursor.execute("INSERT INTO alunos (nome, id_turma) VALUES (?, ?)", lista) 
+
+    cursor.executemany("INSERT INTO alunos (nome, id_turma) VALUES (?, ?)", lista) 
      
     conexao.commit() 
     conexao.close() 
+
+# faltava o executemany por que se fosse só o execute ele execute só um já o many executa varios .
 
