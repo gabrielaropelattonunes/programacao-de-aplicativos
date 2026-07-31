@@ -15,4 +15,4 @@ def cadastrar_serie(nome_serie, id_escola):
     finally:
         conexao.close()
 
-# a tabela possui uma FOREIGN KEY 
+# a tabela precisava de uma FOREIGN KEY 
