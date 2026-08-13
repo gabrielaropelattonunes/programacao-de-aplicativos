@@ -20,11 +20,6 @@ def criar_tabela ():
         conexao.commit()
     finally:
         conexao.close()
-        
-        
-
-
-
 
 def cadastar_academia(nome, bairro):
     try:
