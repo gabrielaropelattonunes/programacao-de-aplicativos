@@ -24,8 +24,8 @@ def cadastrar_tabelas():
     except sqlite3.Error as erro:
         print("Erro ao criar as tabelas:", erro)
     finally:
-        print("finalizado")
-    conexao.close()
+        print(conexao.close)
+    
     
 def cadastrar_rede():
     try:
@@ -45,8 +45,8 @@ def cadastrar_rede():
     except sqlite3.IntegrityError:
         print("Erro: a rede informada não existe.")
     finally:
-        print("finalizado")
-    conexao.close()
+        print(conexao.close)
+    
 
 def listar_redes():
     try:
@@ -71,8 +71,8 @@ def listar_redes():
     except NameError:
         print("Erro: nome da variavel inexistente")
     finally:
-        print("finalizado")
-    conexao.close()
+        print(conexao.close)
+    
     
 def alterar_redes():
     try: 
@@ -103,8 +103,8 @@ def alterar_redes():
     except NameError:
         print("nome invalido")
     finally:
-        print("finalizado")
-    conexao.close()
+        print(conexao.close)
+    
 
 def excluir_redes():
     try:
@@ -131,8 +131,8 @@ def excluir_redes():
     except sqlite3.Error as erro:
         print("Erro no banco de dados:", erro)
     finally:
-        print("finalizado")   
-    conexao.close()
+        print(conexao.close)   
+    
 
 def cadastrar_filial():
     try:
@@ -159,8 +159,8 @@ def cadastrar_filial():
     except sqlite3.IntegrityError:
         print("Erro: a rede informada não existe.")
     finally:
-        print("finalizado")
-    conexao.close()
+        print(conexao.close)
+    
 
 def listar_filial():
     try:
@@ -184,8 +184,8 @@ def listar_filial():
     except NameError:
         print("Erro: nome da variavel inexistente")
     finally:
-        print("finalizado")
-    conexao.close()
+        print(conexao.close)
+    
 
 def alterar_filial():
     try: 
@@ -224,8 +224,8 @@ def alterar_filial():
     except NameError:
         print("nome invalido")
     finally:
-        print("finalizado")
-    conexao.close()
+        print(conexao.close)
+   
 
 def excluir_filial ():
     try:
@@ -251,8 +251,7 @@ def excluir_filial ():
     except sqlite3.Error as erro:
         print("Erro no banco de dados:", erro)
     finally:
-        print("finalizado")   
-    conexao.close()
+        print(conexao.close)   
 
 def menu():
     try:
