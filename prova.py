@@ -24,7 +24,7 @@ def cadastrar_tabelas():
     except sqlite3.Error as erro:
         print("Erro ao criar as tabelas:", erro)
     finally:
-        print(conexao.close)
+        conexao.close()
     
     
 def cadastrar_rede():
@@ -45,7 +45,7 @@ def cadastrar_rede():
     except sqlite3.IntegrityError:
         print("Erro: a rede informada não existe.")
     finally:
-        print(conexao.close)
+        conexao.close()
     
 
 def listar_redes():
@@ -71,7 +71,7 @@ def listar_redes():
     except NameError:
         print("Erro: nome da variavel inexistente")
     finally:
-        print(conexao.close)
+        conexao.close()
     
     
 def alterar_redes():
@@ -103,7 +103,7 @@ def alterar_redes():
     except NameError:
         print("nome invalido")
     finally:
-        print(conexao.close)
+        conexao.close()
     
 
 def excluir_redes():
@@ -131,7 +131,7 @@ def excluir_redes():
     except sqlite3.Error as erro:
         print("Erro no banco de dados:", erro)
     finally:
-        print(conexao.close)   
+        conexao.close()   
     
 
 def cadastrar_filial():
@@ -159,7 +159,7 @@ def cadastrar_filial():
     except sqlite3.IntegrityError:
         print("Erro: a rede informada não existe.")
     finally:
-        print(conexao.close)
+        conexao.close()
     
 
 def listar_filial():
@@ -184,7 +184,7 @@ def listar_filial():
     except NameError:
         print("Erro: nome da variavel inexistente")
     finally:
-        print(conexao.close)
+        conexao.close()
     
 
 def alterar_filial():
@@ -224,7 +224,7 @@ def alterar_filial():
     except NameError:
         print("nome invalido")
     finally:
-        print(conexao.close)
+        conexao.close()
    
 
 def excluir_filial ():
@@ -251,7 +251,7 @@ def excluir_filial ():
     except sqlite3.Error as erro:
         print("Erro no banco de dados:", erro)
     finally:
-        print(conexao.close)   
+        conexao.close()
 
 def menu():
     try:
@@ -294,6 +294,7 @@ def menu():
 
             elif opcao == "0":
                 print("Programa encerrado.")
+                break
                    
             else:
                 print("Opção inválida.")
