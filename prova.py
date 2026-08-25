@@ -221,24 +221,23 @@ def alterar_filial(ID_filial,nova_filial,novo_id_rede):
         conexao.close()
    
 
-def excluir_filial ():
+def excluir_filial (ID_filial):
     try:
         conexao = sqlite3.connect("redes.db")
         cursor = conexao.cursor()
         cursor.execute("PRAGMA foreign_keys = ON;")
 
-        ID_filial = int(input("Digite o ID da filial: "))
         cursor.execute(f"SELECT * FROM cinemas_filiais WHERE id = {ID_filial}")
         filial = cursor.fetchone()
 
         if not filial:
-            print("Nenhuma filial encontrada.")
+            return "Nenhuma filial encontrada."
         else:
             cursor.execute(
                 f"DELETE FROM cinemas_filiais WHERE id = {ID_filial}"
             )
             conexao.commit()
-            print("filial excluida com sucesso! ")
+            return "filial excluida com sucesso! "
         
     except ValueError:
         print("O ID deve ser um número.")
@@ -295,6 +294,7 @@ def menu():
                 alterar_filial( ID_filial,nova_filial,novo_id_rede)
 
             elif opcao == "8":
+                ID_filial = int(input("Digite o ID da filial: "))
                 excluir_filial()
 
             elif opcao == "0":
@@ -319,3 +319,6 @@ assert cadastrar_filial("lm ",2) == "filial cadastrada"
 assert cadastrar_filial("gm",1) == "A rede informada não existe."
 assert listar_filial() == "listado com sucesso"
 assert listar_filial() == "Nenhuma filial cadastrada."
+assert alterar_filial(1,"star",4) == "dados da filial alterados"
+assert excluir_filial(2) == "filial excluida com sucesso! "
+assert excluir_filial (9) == "Nenhuma filial encontrada."
